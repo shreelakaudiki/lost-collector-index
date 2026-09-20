@@ -1,93 +1,443 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>The Lost Collector — Research Index</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>The Lost Collector</h1>
-        <p>Research & Archive Index</p>
+    <header class="topbar">
+
+        <div class="brand">
+            <span class="brand-mark">LC</span>
+
+            <div>
+                <h1>The Lost Collector</h1>
+                <p>Private Research Index</p>
+            </div>
+        </div>
+
+        <div class="year">
+            EST. 2019
+        </div>
+
     </header>
+
 
     <main>
 
-        <section class="intro">
-            <h2>Research Index</h2>
-            <p>
-                A collection of historical archives, auction records,
-                private collections, and estate documents gathered for
-                independent research.
+        <section class="hero">
+
+            <p class="eyebrow">PERSONAL ARCHIVE / RESEARCH DATABASE</p>
+
+            <h2>
+                Objects leave traces.<br>
+                Records remember them.
+            </h2>
+
+            <p class="description">
+                A privately maintained index of historical archives,
+                auction records, collections and estate documents.
+                Compiled for research and provenance studies.
             </p>
+
         </section>
 
-        <section class="resources">
 
-            <h2>Historical Resources</h2>
+        <section class="stats">
 
-            <div class="resource">
-                <h3>
-                    <a href="https://shreelakaudiki.github.io/london-chronicle-archive/">
-                        The London Chronicle — Historical Archive
-                    </a>
-                </h3>
-                <p>
-                    Digitised newspaper records and historical reports
-                    from the late nineteenth and early twentieth centuries.
-                </p>
+            <div>
+                <span>06</span>
+                <p>COLLECTIONS</p>
             </div>
 
-            <div class="resource">
-                <h3>Blackwood &amp; Vale — Auction Records</h3>
-                <p>
-                    Selected catalogues and registry notes from private
-                    auctions conducted in London.
-                </p>
+            <div>
+                <span>10</span>
+                <p>ARCHIVES</p>
             </div>
 
-            <div class="resource">
-                <h3>Paris Private Collections</h3>
-                <p>
-                    Historical records relating to privately held
-                    artworks, jewellery, and unidentified objects.
-                </p>
+            <div>
+                <span>05</span>
+                <p>LOCATIONS</p>
             </div>
 
-            <div class="resource">
-                <h3>Prague Auction Registry</h3>
-                <p>
-                    Selected records of European auctions and disputed
-                    objects from private collections.
-                </p>
-            </div>
-
-            <div class="resource">
-                <h3>Vienna Private Collections</h3>
-                <p>
-                    Inventory records and provenance notes from
-                    twentieth-century private collections.
-                </p>
-            </div>
-
-            <div class="resource">
-                <h3>Ashcombe Estate Archive</h3>
-                <p>
-                    Historical documents relating to the Ashcombe family
-                    and their former estate outside London.
-                </p>
+            <div>
+                <span>1901–2026</span>
+                <p>DATE RANGE</p>
             </div>
 
         </section>
 
-        <footer>
-            <p>Independent research index · Sources compiled for archival reference</p>
-        </footer>
+
+        <section class="search">
+
+            <label for="searchBox">SEARCH THE INDEX</label>
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="searchBox"
+                    placeholder="Search collections, archives or locations..."
+                >
+
+                <button onclick="searchIndex()">SEARCH</button>
+
+            </div>
+
+            <div id="searchResults"></div>
+
+        </section>
+
+
+        <section class="archive-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="eyebrow">DIRECTORY</p>
+                    <h3>Research Collections</h3>
+                </div>
+
+                <span>01—10</span>
+
+            </div>
+
+
+            <div class="archive-grid">
+
+
+                <article class="archive-card featured">
+
+                    <div class="card-number">01</div>
+
+                    <div class="card-content">
+
+                        <p class="category">HISTORICAL PRESS</p>
+
+                        <h4>
+                            <a href="https://shreelakaudiki.github.io/london-chronicle-archive/">
+                                The London Chronicle
+                            </a>
+                        </h4>
+
+                        <p>
+                            Digitised newspapers and historical reports
+                            from London and surrounding regions.
+                        </p>
+
+                        <div class="meta">
+                            <span>London</span>
+                            <span>1880—1950</span>
+                        </div>
+
+                    </div>
+
+                    <span class="arrow">↗</span>
+
+                </article>
+
+
+                <article class="archive-card">
+
+                    <div class="card-number">02</div>
+
+                    <div class="card-content">
+
+                        <p class="category">AUCTION RECORDS</p>
+
+                        <h4>Blackwood &amp; Vale</h4>
+
+                        <p>
+                            Catalogues, lot records and provenance
+                            notes from private London auctions.
+                        </p>
+
+                        <div class="meta">
+                            <span>London</span>
+                            <span>1890—1930</span>
+                        </div>
+
+                    </div>
+
+                    <span class="arrow">↗</span>
+
+                </article>
+
+
+                <article class="archive-card">
+
+                    <div class="card-number">03</div>
+
+                    <div class="card-content">
+
+                        <p class="category">PRIVATE COLLECTIONS</p>
+
+                        <h4>Paris Collections</h4>
+
+                        <p>
+                            Records concerning privately held artworks,
+                            jewellery and unidentified objects.
+                        </p>
+
+                        <div class="meta">
+                            <span>Paris</span>
+                            <span>1900—Present</span>
+                        </div>
+
+                    </div>
+
+                    <span class="arrow">↗</span>
+
+                </article>
+
+
+                <article class="archive-card">
+
+                    <div class="card-number">04</div>
+
+                    <div class="card-content">
+
+                        <p class="category">AUCTION REGISTRY</p>
+
+                        <h4>Prague Auction Registry</h4>
+
+                        <p>
+                            Selected European auction records,
+                            ownership disputes and registry notes.
+                        </p>
+
+                        <div class="meta">
+                            <span>Prague</span>
+                            <span>1920—Present</span>
+                        </div>
+
+                    </div>
+
+                    <span class="arrow">↗</span>
+
+                </article>
+
+
+                <article class="archive-card">
+
+                    <div class="card-number">05</div>
+
+                    <div class="card-content">
+
+                        <p class="category">PRIVATE INVENTORIES</p>
+
+                        <h4>Vienna Collections</h4>
+
+                        <p>
+                            Inventory records and provenance notes
+                            from twentieth-century private collections.
+                        </p>
+
+                        <div class="meta">
+                            <span>Vienna</span>
+                            <span>1900—Present</span>
+                        </div>
+
+                    </div>
+
+                    <span class="arrow">↗</span>
+
+                </article>
+
+
+                <article class="archive-card">
+
+                    <div class="card-number">06</div>
+
+                    <div class="card-content">
+
+                        <p class="category">ESTATE ARCHIVE</p>
+
+                        <h4>Ashcombe Estate</h4>
+
+                        <p>
+                            Historical documents concerning the Ashcombe
+                            family and their former estate.
+                        </p>
+
+                        <div class="meta">
+                            <span>Surrey</span>
+                            <span>1800—1930</span>
+                        </div>
+
+                    </div>
+
+                    <span class="arrow">↗</span>
+
+                </article>
+
+
+                <!-- DECOYS -->
+
+                <article class="archive-card">
+
+                    <div class="card-number">07</div>
+
+                    <div class="card-content">
+
+                        <p class="category">ARCHITECTURAL RECORDS</p>
+
+                        <h4>Victorian Society Records</h4>
+
+                        <p>
+                            Research notes concerning Victorian
+                            buildings, restoration and architecture.
+                        </p>
+
+                        <div class="meta">
+                            <span>London</span>
+                            <span>1850—1915</span>
+                        </div>
+
+                    </div>
+
+                    <span class="arrow">↗</span>
+
+                </article>
+
+
+                <article class="archive-card">
+
+                    <div class="card-number">08</div>
+
+                    <div class="card-content">
+
+                        <p class="category">CONSERVATION</p>
+
+                        <h4>European Art Register</h4>
+
+                        <p>
+                            Conservation records and historical
+                            notes on European artworks.
+                        </p>
+
+                        <div class="meta">
+                            <span>Europe</span>
+                            <span>1900—Present</span>
+                        </div>
+
+                    </div>
+
+                    <span class="arrow">↗</span>
+
+                </article>
+
+
+                <article class="archive-card">
+
+                    <div class="card-number">09</div>
+
+                    <div class="card-content">
+
+                        <p class="category">MARITIME HISTORY</p>
+
+                        <h4>London Maritime Archive</h4>
+
+                        <p>
+                            Shipping records, passenger registers
+                            and historical Thames documentation.
+                        </p>
+
+                        <div class="meta">
+                            <span>London</span>
+                            <span>1800—1940</span>
+                        </div>
+
+                    </div>
+
+                    <span class="arrow">↗</span>
+
+                </article>
+
+
+                <article class="archive-card">
+
+                    <div class="card-number">10</div>
+
+                    <div class="card-content">
+
+                        <p class="category">COLLECTORS' PERIODICAL</p>
+
+                        <h4>Private Collectors' Gazette</h4>
+
+                        <p>
+                            Articles and correspondence concerning
+                            rare objects and private collections.
+                        </p>
+
+                        <div class="meta">
+                            <span>Europe</span>
+                            <span>1920—1980</span>
+                        </div>
+
+                    </div>
+
+                    <span class="arrow">↗</span>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <section class="recent">
+
+            <div>
+                <p class="eyebrow">RECENT ACTIVITY</p>
+                <h3>Archive updates</h3>
+            </div>
+
+            <div class="activity">
+
+                <p>
+                    <span>14 OCT 2026</span>
+                    Three historical sources added to the index.
+                </p>
+
+                <p>
+                    <span>02 SEP 2026</span>
+                    Prague registry records updated.
+                </p>
+
+                <p>
+                    <span>19 AUG 2026</span>
+                    London Chronicle archive expanded.
+                </p>
+
+            </div>
+
+        </section>
 
     </main>
+
+
+    <footer>
+
+        <p>
+            THE LOST COLLECTOR
+        </p>
+
+        <span>
+            A private research index · London · Paris · Prague · Vienna
+        </span>
+
+    </footer>
+
+
+    <script src="script.js"></script>
 
 </body>
 </html>
