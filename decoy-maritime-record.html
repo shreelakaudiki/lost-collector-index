@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>London Maritime Archive · Record</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #e8ecec;
+            color: #263237;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        header {
+            background: #20343b;
+            color: #eef2f1;
+            padding: 30px 8%;
+            border-bottom: 4px solid #9a7b50;
+        }
+
+        .back {
+            color: #c8b28d;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .back:hover {
+            color: #ffffff;
+        }
+
+        .label {
+            margin-top: 28px;
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #c8b28d;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 10px 0;
+            font-size: 34px;
+            font-weight: normal;
+        }
+
+        main {
+            max-width: 850px;
+            margin: 55px auto;
+            padding: 0 25px;
+        }
+
+        .reference {
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: #806c4e;
+            margin-bottom: 10px;
+        }
+
+        .date {
+            color: #606b6e;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .document {
+            background: #f5f7f6;
+            border: 1px solid #cbd3d3;
+            padding: 35px;
+            line-height: 1.8;
+        }
+
+        .document h2 {
+            font-size: 23px;
+            font-weight: normal;
+            margin-top: 0;
+        }
+
+        .document p {
+            color: #566165;
+        }
+
+        .record-details {
+            margin: 25px 0;
+            padding: 20px 25px;
+            background: #dde5e5;
+            border: 1px solid #cbd3d3;
+        }
+
+        .record-details div {
+            padding: 8px 0;
+            border-bottom: 1px solid #c5cece;
+        }
+
+        .record-details div:last-child {
+            border-bottom: none;
+        }
+
+        .note {
+            margin-top: 30px;
+            padding: 20px;
+            border-left: 3px solid #9a7b50;
+            background: #e1e7e7;
+            color: #596467;
+            font-size: 14px;
+        }
+
+        footer {
+            margin-top: 70px;
+            padding: 25px 8%;
+            background: #20343b;
+            color: #aebbbc;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <a class="back" href="decoy-maritime.html">
+        ← RETURN TO MARITIME RECORDS
+    </a>
+
+    <div class="label">London Maritime Archive</div>
+
+    <h1 id="pageTitle">Catalogue Record</h1>
+
+</header>
+
+<main>
+
+    <div class="reference" id="reference"></div>
+
+    <div class="date" id="date"></div>
+
+    <section class="document">
+
+        <h2 id="recordTitle"></h2>
+
+        <div id="recordContent"></div>
+
+        <div class="record-details" id="details"></div>
+
+        <div class="note" id="archiveNote"></div>
+
+    </section>
+
+</main>
+
+<footer>
+    London Maritime Archive · Digital Maritime Catalogue
+</footer>
+
+
+<script>
+
+const records = {
+
+    "1899": {
+
+        reference: "LMA-1899-14",
+
+        date: "8 August 1899 · London",
+
+        title: "Thames Cargo Register",
+
+        content: `
+            <p>
+                This register records selected cargo movements
+                through London's river docks during the summer
+                shipping season.
+            </p>
+
+            <p>
+                Entries include vessels, cargo descriptions and
+                the dates on which goods were received or transferred.
+            </p>
+        `,
+
+        details: `
+            <div>
+                <strong>VESSEL</strong><br>
+                SS Meridian
+            </div>
+
+            <div>
+                <strong>CARGO</strong><br>
+                Manufactured goods
+            </div>
+
+            <div>
+                <strong>DOCK</strong><br>
+                Tilbury
+            </div>
+
+            <div>
+                <strong>STATUS</strong><br>
+                Cargo transferred
+            </div>
+        `,
+
+        note: `
+            <strong>ARCHIVE NOTE</strong><br><br>
+            Original cargo register preserved in the Thames
+            commercial shipping collection.
+        `
+    },
+
+
+    "1906": {
+
+        reference: "LMA-1906-27",
+
+        date: "17 March 1906 · London",
+
+        title: "Dockworkers' Register",
+
+        content: `
+            <p>
+                The register contains employment records for
+                dock workers assigned to several Thames-side
+                warehouses.
+            </p>
+
+            <p>
+                Workers were recorded according to their assigned
+                shift, warehouse and area of operation.
+            </p>
+        `,
+
+        details: `
+            <div>
+                <strong>DOCK AREA</strong><br>
+                East India Docks
+            </div>
+
+            <div>
+                <strong>SHIFT</strong><br>
+                Morning
+            </div>
+
+            <div>
+                <strong>REGISTER TYPE</strong><br>
+                Employment record
+            </div>
+
+            <div>
+                <strong>PERIOD</strong><br>
+                March 1906
+            </div>
+        `,
+
+        note: `
+            <strong>ARCHIVE NOTE</strong><br><br>
+            Several pages of the original employment register
+            were transferred to the municipal collection in 1952.
+        `
+    },
+
+
+    "1913": {
+
+        reference: "LMA-1913-08",
+
+        date: "3 September 1913 · London",
+
+        title: "Coastal Shipping Log",
+
+        content: `
+            <p>
+                This log records arrivals and departures of
+                vessels operating between British coastal ports.
+            </p>
+
+            <p>
+                The entries were maintained by harbour clerks
+                and include basic information concerning each
+                vessel's movement.
+            </p>
+        `,
+
+        details: `
+            <div>
+                <strong>VESSEL</strong><br>
+                MV North Star
+            </div>
+
+            <div>
+                <strong>ORIGIN</strong><br>
+                Southampton
+            </div>
+
+            <div>
+                <strong>DESTINATION</strong><br>
+                London
+            </div>
+
+            <div>
+                <strong>ARRIVAL</strong><br>
+                3 September 1913
+            </div>
+        `,
+
+        note: `
+            <strong>ARCHIVE NOTE</strong><br><br>
+            Harbour movement log retained as part of the
+            coastal shipping collection.
+        `
+    },
+
+
+    "1921": {
+
+        reference: "LMA-1921-19",
+
+        date: "14 July 1921 · London",
+
+        title: "River Transport Survey",
+
+        content: `
+            <p>
+                The 1921 survey examined the condition and
+                organisation of commercial river transport
+                along the Thames.
+            </p>
+
+            <p>
+                Particular attention was given to cargo handling,
+                warehouse facilities and the changing requirements
+                of river-based commerce.
+            </p>
+        `,
+
+        details: `
+            <div>
+                <strong>SURVEY AREA</strong><br>
+                Lower Thames
+            </div>
+
+            <div>
+                <strong>DOCUMENT TYPE</strong><br>
+                Transport survey
+            </div>
+
+            <div>
+                <strong>DATE</strong><br>
+                July 1921
+            </div>
+
+            <div>
+                <strong>ARCHIVE STATUS</strong><br>
+                Preserved
+            </div>
+        `,
+
+        note: `
+            <strong>ARCHIVE NOTE</strong><br><br>
+            Survey retained in the postwar river transportation
+            records.
+        `
+    }
+
+};
+
+
+const params = new URLSearchParams(window.location.search);
+
+const recordID = params.get("record");
+
+const record = records[recordID];
+
+
+if (record) {
+
+    document.getElementById("reference").textContent =
+        "RECORD " + record.reference;
+
+    document.getElementById("date").textContent =
+        record.date;
+
+    document.getElementById("pageTitle").textContent =
+        record.title;
+
+    document.getElementById("recordTitle").textContent =
+        record.title;
+
+    document.getElementById("recordContent").innerHTML =
+        record.content;
+
+    document.getElementById("details").innerHTML =
+        record.details;
+
+    document.getElementById("archiveNote").innerHTML =
+        record.note;
+
+} else {
+
+    document.getElementById("pageTitle").textContent =
+        "Record Not Found";
+
+    document.getElementById("recordTitle").textContent =
+        "Catalogue Record Unavailable";
+
+    document.getElementById("recordContent").innerHTML = `
+        <p>
+            The requested maritime record could not be located
+            in the digital archive.
+        </p>
+    `;
+
+    document.getElementById("details").innerHTML = "";
+
+    document.getElementById("archiveNote").innerHTML = `
+        <strong>ARCHIVE NOTICE</strong><br><br>
+        Please return to the maritime catalogue and select
+        a valid record.
+    `;
+}
+
+</script>
+
+</body>
+</html>
