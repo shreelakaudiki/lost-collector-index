@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>European Art Register · Record</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #f3f0e8;
+            color: #24282c;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        header {
+            background: #273746;
+            color: #f3f0e8;
+            padding: 30px 8%;
+            border-bottom: 4px solid #a98258;
+        }
+
+        .back {
+            color: #d6bd9e;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .label {
+            margin-top: 28px;
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #d6bd9e;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 10px 0;
+            font-size: 34px;
+            font-weight: normal;
+        }
+
+        main {
+            max-width: 850px;
+            margin: 55px auto;
+            padding: 0 25px;
+        }
+
+        .reference {
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: #987651;
+            margin-bottom: 10px;
+        }
+
+        .date {
+            color: #686d71;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .document {
+            background: #faf8f2;
+            border: 1px solid #d5cec1;
+            padding: 35px;
+            line-height: 1.8;
+        }
+
+        .document h2 {
+            font-size: 23px;
+            font-weight: normal;
+            margin-top: 0;
+        }
+
+        .document p {
+            color: #575d61;
+        }
+
+        .note {
+            margin-top: 30px;
+            padding: 20px;
+            background: #e9e4da;
+            border-left: 3px solid #a98258;
+            color: #5d6265;
+            font-size: 14px;
+        }
+
+        footer {
+            margin-top: 70px;
+            padding: 25px 8%;
+            background: #273746;
+            color: #adb5ba;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <a class="back" href="decoy-art.html">
+        ← RETURN TO REGISTER
+    </a>
+
+    <div class="label">European Art Register</div>
+
+    <h1 id="pageTitle">Catalogue Record</h1>
+
+</header>
+
+<main>
+
+    <div class="reference" id="reference"></div>
+
+    <div class="date" id="date"></div>
+
+    <section class="document">
+
+        <h2 id="recordTitle"></h2>
+
+        <div id="recordContent"></div>
+
+        <div class="note" id="archiveNote"></div>
+
+    </section>
+
+</main>
+
+<footer>
+    European Art Register · Digital Catalogue
+</footer>
+
+
+<script>
+
+const records = {
+
+    "1896": {
+        reference: "EAR-1896-31",
+        date: "18 September 1896 · Antwerp",
+        title: "Flemish Landscape Study",
+
+        content: `
+            <p>
+                An unsigned landscape study depicting a rural
+                Flemish village was entered into the register
+                following a private collection review.
+            </p>
+
+            <p>
+                The painting was recorded as oil on canvas and
+                measured approximately 62 by 48 centimetres.
+                The artist remains unidentified.
+            </p>
+
+            <p>
+                The work was retained in the collection following
+                the 1896 review and was not offered for public sale.
+            </p>
+        `,
+
+        note: `
+            <strong>REGISTER NOTE</strong><br><br>
+            Attribution remains unresolved. No later correspondence
+            concerning the artist was located.
+        `
+    },
+
+
+    "1904": {
+        reference: "EAR-1904-18",
+        date: "4 June 1904 · Brussels",
+        title: "Decorative Bronze Collection",
+
+        content: `
+            <p>
+                The register records a collection of small
+                decorative bronze objects displayed during a
+                summer exhibition in Brussels.
+            </p>
+
+            <p>
+                The collection included figurines, ornamental
+                vessels and two small architectural models.
+            </p>
+
+            <p>
+                Following the exhibition, the objects were returned
+                to their respective private collections.
+            </p>
+        `,
+
+        note: `
+            <strong>REGISTER NOTE</strong><br><br>
+            Exhibition catalogue retained in the Brussels
+            decorative arts collection.
+        `
+    },
+
+
+    "1912": {
+        reference: "EAR-1912-07",
+        date: "11 May 1912 · Paris",
+        title: "Paris Salon Catalogue",
+
+        content: `
+            <p>
+                This record contains selected catalogue notes from
+                the annual Paris Salon exhibition.
+            </p>
+
+            <p>
+                The register includes paintings, sculpture and
+                decorative works presented by European artists.
+            </p>
+
+            <p>
+                Several entries were transferred to private
+                collections following the exhibition.
+            </p>
+        `,
+
+        note: `
+            <strong>REGISTER NOTE</strong><br><br>
+            Catalogue pages preserved as part of the Paris
+            exhibition records.
+        `
+    },
+
+
+    "1920": {
+        reference: "EAR-1920-42",
+        date: "23 October 1920 · Vienna",
+        title: "Postwar Decorative Arts",
+
+        content: `
+            <p>
+                The register contains a selection of decorative
+                objects recorded during the early postwar period.
+            </p>
+
+            <p>
+                Objects include ceramics, metalwork and domestic
+                furnishings from several European workshops.
+            </p>
+
+            <p>
+                The collection was reviewed for inclusion in the
+                European Art Register during the autumn catalogue
+                revision of 1920.
+            </p>
+        `,
+
+        note: `
+            <strong>REGISTER NOTE</strong><br><br>
+            The original catalogue remains in the Vienna
+            reference collection.
+        `
+    }
+
+};
+
+
+const params = new URLSearchParams(window.location.search);
+
+const recordID = params.get("record");
+
+const record = records[recordID];
+
+if (record) {
+
+    document.getElementById("reference").textContent =
+        "RECORD " + record.reference;
+
+    document.getElementById("date").textContent =
+        record.date;
+
+    document.getElementById("pageTitle").textContent =
+        record.title;
+
+    document.getElementById("recordTitle").textContent =
+        record.title;
+
+    document.getElementById("recordContent").innerHTML =
+        record.content;
+
+    document.getElementById("archiveNote").innerHTML =
+        record.note;
+
+} else {
+
+    document.getElementById("pageTitle").textContent =
+        "Record Not Found";
+
+    document.getElementById("recordTitle").textContent =
+        "Catalogue Record Unavailable";
+
+    document.getElementById("recordContent").innerHTML = `
+        <p>
+            The requested catalogue record could not be located
+            in the digital register.
+        </p>
+    `;
+
+    document.getElementById("archiveNote").innerHTML = `
+        <strong>REGISTER NOTICE</strong><br><br>
+        Please return to the catalogue and select a valid record.
+    `;
+}
+
+</script>
+
+</body>
+</html>
