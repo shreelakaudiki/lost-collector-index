@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashcombe Estate — Restricted Archive</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="record-page">
+
+        <a href="index.html" class="back-link">← RETURN TO ARCHIVE</a>
+
+        <section class="record-header">
+            <div class="record-reference">ASHCOMBE ESTATE · PRIVATE PAPERS</div>
+
+            <h1 class="record-title">Restricted Archive</h1>
+
+            <p class="record-subtitle">
+                Certain records within the Ashcombe Estate archive remain
+                inaccessible to the public.
+            </p>
+        </section>
+
+        <section class="record-section">
+
+            <div class="record-status">
+                ACCESS RESTRICTED
+            </div>
+
+            <p>
+                This collection contains private estate records and
+                correspondence not included in the public catalogue.
+            </p>
+
+            <p>
+                Access requires a <strong>5-character passcode</strong>.
+            </p>
+
+            <form id="accessForm">
+                <input
+                    type="text"
+                    id="passcode"
+                    maxlength="5"
+                    autocomplete="off"
+                    placeholder="ENTER PASSCODE"
+                    required
+                >
+
+                <button type="submit" class="diary-button">
+                    ACCESS ARCHIVE
+                </button>
+            </form>
+
+            <p id="errorMessage" style="display:none;">
+                ACCESS DENIED — INVALID PASSCODE
+            </p>
+
+        </section>
+
+        <footer class="record-footer">
+            ASHCOMBE ESTATE ARCHIVE · PRIVATE ACCESS
+        </footer>
+
+    </main>
+
+    <script>
+        document.getElementById("accessForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const passcode = document
+                .getElementById("passcode")
+                .value
+                .trim()
+                .toUpperCase();
+
+            if (passcode === "7Q3KA") {
+                window.location.href = "https://shreelakaudiki.github.io/ashcombe-estate/";
+            } else {
+                document.getElementById("errorMessage").style.display = "block";
+            }
+        });
+    </script>
+
+</body>
+</html>
