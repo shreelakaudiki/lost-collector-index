@@ -1,89 +1,381 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ashcombe Estate — Restricted Archive</title>
+
+    <title>Ashcombe Estate — Restricted Access</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .access-main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 24px;
+        }
+
+        .access-container {
+            width: 100%;
+            max-width: 720px;
+        }
+
+        .access-back {
+            display: inline-block;
+            margin-bottom: 42px;
+            font-size: 12px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            text-decoration: none;
+            opacity: 0.65;
+        }
+
+        .access-panel {
+            padding: 64px 72px 70px;
+            border: 1px solid rgba(255,255,255,0.14);
+            background: rgba(255,255,255,0.025);
+            text-align: center;
+        }
+
+        .access-mark {
+            width: 58px;
+            height: 58px;
+            margin: 0 auto 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid rgba(255,255,255,0.25);
+
+            font-family: Georgia, serif;
+            font-size: 20px;
+            letter-spacing: 0.08em;
+        }
+
+        .access-label {
+            margin-bottom: 14px;
+
+            font-size: 11px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+
+            opacity: 0.55;
+        }
+
+        .access-title {
+            margin: 0 0 22px;
+
+            font-family: Georgia, serif;
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: normal;
+            line-height: 1.15;
+        }
+
+        .access-description {
+            max-width: 500px;
+            margin: 0 auto 42px;
+
+            font-size: 15px;
+            line-height: 1.8;
+            opacity: 0.7;
+        }
+
+        .access-divider {
+            width: 60px;
+            height: 1px;
+            margin: 0 auto 42px;
+
+            background: currentColor;
+            opacity: 0.25;
+        }
+
+        .access-form {
+            max-width: 360px;
+            margin: 0 auto;
+        }
+
+        .access-form label {
+            display: block;
+            margin-bottom: 12px;
+
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            text-align: left;
+
+            opacity: 0.55;
+        }
+
+        .passcode-input {
+            width: 100%;
+            box-sizing: border-box;
+
+            padding: 17px 18px;
+
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(0,0,0,0.18);
+
+            color: inherit;
+
+            font-family: Georgia, serif;
+            font-size: 18px;
+            letter-spacing: 0.35em;
+            text-align: center;
+
+            outline: none;
+        }
+
+        .passcode-input:focus {
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        .passcode-input::placeholder {
+            letter-spacing: 0.18em;
+            opacity: 0.35;
+        }
+
+        .access-button {
+            width: 100%;
+            margin-top: 16px;
+            padding: 16px 20px;
+
+            border: 1px solid rgba(255,255,255,0.25);
+            background: transparent;
+            color: inherit;
+
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+
+            cursor: pointer;
+        }
+
+        .access-button:hover {
+            background: rgba(255,255,255,0.06);
+        }
+
+        .access-note {
+            margin-top: 30px;
+
+            font-size: 12px;
+            line-height: 1.7;
+            opacity: 0.45;
+        }
+
+        #errorMessage {
+            margin-top: 20px;
+
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+
+            opacity: 0.75;
+        }
+
+        .access-reference {
+            margin-top: 42px;
+
+            font-size: 10px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+
+            opacity: 0.35;
+        }
+
+        @media (max-width: 600px) {
+
+            .access-main {
+                padding: 50px 18px;
+            }
+
+            .access-panel {
+                padding: 45px 25px 50px;
+            }
+
+            .access-back {
+                margin-bottom: 28px;
+            }
+
+        }
+    </style>
+
 </head>
+
 
 <body>
 
-    <main class="record-page">
 
-        <a href="index.html" class="back-link">← RETURN TO ARCHIVE</a>
+    <header class="topbar">
 
-        <section class="record-header">
-            <div class="record-reference">ASHCOMBE ESTATE · PRIVATE PAPERS</div>
+        <div class="brand">
 
-            <h1 class="record-title">Restricted Archive</h1>
+            <span class="brand-mark">LC</span>
 
-            <p class="record-subtitle">
-                Certain records within the Ashcombe Estate archive remain
-                inaccessible to the public.
-            </p>
-        </section>
-
-        <section class="record-section">
-
-            <div class="record-status">
-                ACCESS RESTRICTED
+            <div>
+                <h1>The Lost Collector</h1>
+                <p>Private Research Index</p>
             </div>
 
-            <p>
-                This collection contains private estate records and
-                correspondence not included in the public catalogue.
-            </p>
+        </div>
 
-            <p>
-                Access requires a <strong>5-character passcode</strong>.
-            </p>
+        <div class="year">
+            EST. 2019
+        </div>
 
-            <form id="accessForm">
-                <input
-                    type="text"
-                    id="passcode"
-                    maxlength="5"
-                    autocomplete="off"
-                    placeholder="ENTER PASSCODE"
-                    required
+    </header>
+
+
+    <main class="access-main">
+
+        <div class="access-container">
+
+
+            <a href="index.html" class="access-back">
+                ← Return to Research Index
+            </a>
+
+
+            <section class="access-panel">
+
+
+                <div class="access-mark">
+                    AE
+                </div>
+
+
+                <p class="access-label">
+                    Ashcombe Estate · Private Papers
+                </p>
+
+
+                <h2 class="access-title">
+                    Restricted Archive
+                </h2>
+
+
+                <p class="access-description">
+                    Certain records belonging to the Ashcombe Estate
+                    remain outside the public catalogue.
+                    Access to the private collection requires
+                    an archival passcode.
+                </p>
+
+
+                <div class="access-divider"></div>
+
+
+                <form id="accessForm" class="access-form">
+
+
+                    <label for="passcode">
+                        Five-character passcode
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="passcode"
+                        class="passcode-input"
+                        maxlength="5"
+                        autocomplete="off"
+                        spellcheck="false"
+                        placeholder="— — — — —"
+                        required
+                    >
+
+
+                    <button
+                        type="submit"
+                        class="access-button"
+                    >
+                        Access Private Papers
+                    </button>
+
+
+                </form>
+
+
+                <p
+                    id="errorMessage"
+                    style="display:none;"
                 >
+                    Access denied — invalid passcode.
+                </p>
 
-                <button type="submit" class="diary-button">
-                    ACCESS ARCHIVE
-                </button>
-            </form>
 
-            <p id="errorMessage" style="display:none;">
-                ACCESS DENIED — INVALID PASSCODE
-            </p>
+                <p class="access-note">
+                    The public catalogue contains no further
+                    instructions for this collection.
+                </p>
 
-        </section>
 
-        <footer class="record-footer">
-            ASHCOMBE ESTATE ARCHIVE · PRIVATE ACCESS
-        </footer>
+                <div class="access-reference">
+                    AE · PRIVATE ACCESS · ARCHIVAL RECORD
+                </div>
+
+
+            </section>
+
+
+        </div>
 
     </main>
 
+
+    <footer>
+
+        <p>
+            THE LOST COLLECTOR
+        </p>
+
+        <span>
+            A private research index · London · Paris · Prague · Vienna
+        </span>
+
+    </footer>
+
+
     <script>
-        document.getElementById("accessForm").addEventListener("submit", function(event) {
-            event.preventDefault();
 
-            const passcode = document
-                .getElementById("passcode")
-                .value
-                .trim()
-                .toUpperCase();
+        document
+            .getElementById("accessForm")
+            .addEventListener("submit", function(event) {
 
-            if (passcode === "7Q3KA") {
-                window.location.href = "https://shreelakaudiki.github.io/ashcombe-estate/";
-            } else {
-                document.getElementById("errorMessage").style.display = "block";
-            }
-        });
+                event.preventDefault();
+
+                const passcode = document
+                    .getElementById("passcode")
+                    .value
+                    .trim()
+                    .toUpperCase();
+
+                if (passcode === "7Q3KA") {
+
+                    window.location.href =
+                        "https://shreelakaudiki.github.io/ashcombe-estate/";
+
+                } else {
+
+                    document
+                        .getElementById("errorMessage")
+                        .style.display = "block";
+
+                }
+
+            });
+
     </script>
+
 
 </body>
 </html>
