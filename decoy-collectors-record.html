@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Private Collectors' Gazette · Record</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #f0ede7;
+            color: #302d29;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        header {
+            background: #342f2b;
+            color: #f4f1eb;
+            padding: 30px 8%;
+            border-bottom: 4px solid #927554;
+        }
+
+        .back {
+            color: #cbb69b;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .back:hover {
+            color: #ffffff;
+        }
+
+        .label {
+            margin-top: 28px;
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #cbb69b;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 10px 0;
+            font-size: 34px;
+            font-weight: normal;
+        }
+
+        main {
+            max-width: 850px;
+            margin: 55px auto;
+            padding: 0 25px;
+        }
+
+        .reference {
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: #80664c;
+            margin-bottom: 10px;
+        }
+
+        .date {
+            color: #68635d;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .document {
+            background: #faf8f4;
+            border: 1px solid #d3cbc0;
+            padding: 35px;
+            line-height: 1.8;
+        }
+
+        .document h2 {
+            font-size: 23px;
+            font-weight: normal;
+            margin-top: 0;
+        }
+
+        .document p {
+            color: #5e5954;
+        }
+
+        .details {
+            margin: 25px 0;
+            padding: 20px 25px;
+            background: #e7e0d6;
+            border: 1px solid #d3cbc0;
+        }
+
+        .details div {
+            padding: 8px 0;
+            border-bottom: 1px solid #d3cbc0;
+        }
+
+        .details div:last-child {
+            border-bottom: none;
+        }
+
+        .note {
+            margin-top: 30px;
+            padding: 20px;
+            border-left: 3px solid #927554;
+            background: #e9e3da;
+            color: #625d57;
+            font-size: 14px;
+        }
+
+        footer {
+            margin-top: 70px;
+            padding: 25px 8%;
+            background: #342f2b;
+            color: #aaa49c;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <a class="back" href="decoy-collectors.html">
+        ← RETURN TO GAZETTE
+    </a>
+
+    <div class="label">Private Collectors' Gazette</div>
+
+    <h1 id="pageTitle">Gazette Record</h1>
+
+</header>
+
+<main>
+
+    <div class="reference" id="reference"></div>
+
+    <div class="date" id="date"></div>
+
+    <section class="document">
+
+        <h2 id="recordTitle"></h2>
+
+        <div id="recordContent"></div>
+
+        <div class="details" id="details"></div>
+
+        <div class="note" id="archiveNote"></div>
+
+    </section>
+
+</main>
+
+<footer>
+    Private Collectors' Gazette · Digital Catalogue
+</footer>
+
+
+<script>
+
+const records = {
+
+    "1902": {
+
+        reference: "PCG-1902-11",
+
+        date: "16 April 1902 · London",
+
+        title: "A Collector's Cabinet",
+
+        content: `
+            <p>
+                This entry describes a small private collection
+                assembled by a London collector during the final
+                years of the nineteenth century.
+            </p>
+
+            <p>
+                The collection included scientific instruments,
+                mineral specimens, illustrated books and several
+                decorative objects.
+            </p>
+
+            <p>
+                The collector maintained detailed notes concerning
+                the condition and origin of each object.
+            </p>
+        `,
+
+        details: `
+            <div>
+                <strong>COLLECTION TYPE</strong><br>
+                Private Cabinet
+            </div>
+
+            <div>
+                <strong>LOCATION</strong><br>
+                London
+            </div>
+
+            <div>
+                <strong>PERIOD</strong><br>
+                1875–1902
+            </div>
+
+            <div>
+                <strong>STATUS</strong><br>
+                Preserved
+            </div>
+        `,
+
+        note: `
+            <strong>GAZETTE NOTE</strong><br><br>
+            The original collector's inventory survives in
+            the private papers collection.
+        `
+    },
+
+
+    "1910": {
+
+        reference: "PCG-1910-24",
+
+        date: "9 February 1910 · London",
+
+        title: "Correspondence Between Collectors",
+
+        content: `
+            <p>
+                This record contains selected correspondence
+                exchanged between private collectors concerning
+                books, prints and decorative objects.
+            </p>
+
+            <p>
+                Much of the correspondence concerns recommendations
+                for exhibitions and discussions of newly acquired
+                pieces.
+            </p>
+
+            <p>
+                The surviving letters cover a period of approximately
+                six months.
+            </p>
+        `,
+
+        details: `
+            <div>
+                <strong>CORRESPONDENCE PERIOD</strong><br>
+                1909–1910
+            </div>
+
+            <div>
+                <strong>LOCATION</strong><br>
+                London
+            </div>
+
+            <div>
+                <strong>DOCUMENT TYPE</strong><br>
+                Private Letters
+            </div>
+
+            <div>
+                <strong>STATUS</strong><br>
+                Partial Collection
+            </div>
+        `,
+
+        note: `
+            <strong>GAZETTE NOTE</strong><br><br>
+            Several letters were donated to the Gazette archive
+            in the middle of the twentieth century.
+        `
+    },
+
+
+    "1926": {
+
+        reference: "PCG-1926-38",
+
+        date: "22 September 1926 · London",
+
+        title: "Collection of European Ceramics",
+
+        content: `
+            <p>
+                The Gazette recorded a private collection of
+                European ceramics assembled over several decades.
+            </p>
+
+            <p>
+                The collection included nineteenth-century
+                porcelain, earthenware and several regional
+                examples acquired during travels across Europe.
+            </p>
+
+            <p>
+                A preliminary inventory was prepared before
+                the collection was moved to a new residence.
+            </p>
+        `,
+
+        details: `
+            <div>
+                <strong>OBJECT TYPE</strong><br>
+                European Ceramics
+            </div>
+
+            <div>
+                <strong>COLLECTION PERIOD</strong><br>
+                1880–1926
+            </div>
+
+            <div>
+                <strong>PRIMARY MATERIAL</strong><br>
+                Porcelain and Earthenware
+            </div>
+
+            <div>
+                <strong>STATUS</strong><br>
+                Inventoried
+            </div>
+        `,
+
+        note: `
+            <strong>GAZETTE NOTE</strong><br><br>
+            Inventory retained with the collector's estate papers.
+        `
+    },
+
+
+    "1954": {
+
+        reference: "PCG-1954-06",
+
+        date: "3 December 1954 · London",
+
+        title: "The Winter Collection Sale",
+
+        content: `
+            <p>
+                The Gazette reported on the dispersal of a large
+                private collection during the winter auction season.
+            </p>
+
+            <p>
+                The collection included paintings, furniture,
+                books and decorative objects accumulated over
+                several decades.
+            </p>
+
+            <p>
+                The sale was conducted over three days and attracted
+                collectors from Britain and continental Europe.
+            </p>
+        `,
+
+        details: `
+            <div>
+                <strong>EVENT</strong><br>
+                Private Collection Sale
+            </div>
+
+            <div>
+                <strong>LOCATION</strong><br>
+                London
+            </div>
+
+            <div>
+                <strong>DURATION</strong><br>
+                Three days
+            </div>
+
+            <div>
+                <strong>YEAR</strong><br>
+                1954
+            </div>
+        `,
+
+        note: `
+            <strong>GAZETTE NOTE</strong><br><br>
+            The published report contains selected lots but
+            does not reproduce the complete auction catalogue.
+        `
+    }
+
+};
+
+
+const params = new URLSearchParams(window.location.search);
+
+const recordID = params.get("record");
+
+const record = records[recordID];
+
+
+if (record) {
+
+    document.getElementById("reference").textContent =
+        "RECORD " + record.reference;
+
+    document.getElementById("date").textContent =
+        record.date;
+
+    document.getElementById("pageTitle").textContent =
+        record.title;
+
+    document.getElementById("recordTitle").textContent =
+        record.title;
+
+    document.getElementById("recordContent").innerHTML =
+        record.content;
+
+    document.getElementById("details").innerHTML =
+        record.details;
+
+    document.getElementById("archiveNote").innerHTML =
+        record.note;
+
+} else {
+
+    document.getElementById("pageTitle").textContent =
+        "Record Not Found";
+
+    document.getElementById("recordTitle").textContent =
+        "Gazette Record Unavailable";
+
+    document.getElementById("recordContent").innerHTML = `
+        <p>
+            The requested record could not be located in the
+            digital Gazette catalogue.
+        </p>
+    `;
+
+    document.getElementById("details").innerHTML = "";
+
+    document.getElementById("archiveNote").innerHTML = `
+        <strong>GAZETTE NOTICE</strong><br><br>
+        Please return to the catalogue and select a valid record.
+    `;
+}
+
+</script>
+
+</body>
+</html>
